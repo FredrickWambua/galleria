@@ -1,0 +1,32 @@
+{% extends 'galleria/base.html' %}
+{% block content %}
+
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+
+        {% for photo in photos %}
+        <div class="col-md-4">
+            <div class="card my-2">
+                <h4 align=center> {{photo.name}} </h4>
+                <img class="image-thumbail" height="200px" src="{{photo.image.url}}" alt="image">
+
+                <div class="card-body">
+                    <p>{{photo.category.name}}</p>
+                    <small>Place:{{photo.location}}.</small><br>
+                    <small>Published: {{photo.pub_date|timesince}} </small>
+                    <p></p>
+                    <p>{{photo.description}}</p>
+                </div>
+                <a href="{% url 'picha' photo.pk %}" class="btn btn-outline-success btn-sm m-1">View</a>
+            </div>
+        </div>
+        {% empty %}
+        <h3>No photos...</h3>
+        {% endfor %}
+    </div>
+</div>
+{%  endblock %}

@@ -1,0 +1,18 @@
+{% extends 'galleria/base.html' %}
+{% block content %}
+
+<br>
+<br>
+<div class="container">
+    <h3>Browse the list of travel images to have a glimpse of view of various locations and sceneries</h3>
+    <div class="row">
+        {% for image in travel %}
+        {% include 'photo_details.html' %}
+
+        {% empty %}
+        <p>This category has no photos uploaded yet.</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+</div>

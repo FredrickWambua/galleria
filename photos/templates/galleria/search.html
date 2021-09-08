@@ -1,0 +1,24 @@
+{% extends 'galleria/base.html' %} 
+{% block content %}
+<br>
+<br>
+<br>
+
+<div class="container">
+  <h1>Your search results:</h1>
+    <div class="row">
+      {% if photos %}
+        {% for photo in photos %}
+        <p> {{search.name}} </p>
+        <h2>Found {{ photos|length }}{{message}}</h2>
+        <div class="col-sm-6 col-md-3">
+          <img class="image-thumbail" height="200px" src="{photo.image.url}" alt="image">
+        </div>
+        {% endfor %}
+      {% else %}
+        <h2>{{message}}</h2>
+      {% endif %}
+
+    </div>
+</div>
+{% endblock %}

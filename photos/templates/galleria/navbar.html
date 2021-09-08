@@ -1,0 +1,31 @@
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand-success" style="color:green; font-weight: bolder; font-size:30px;" href="{% url 'home' %}">Galleria</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link active" style="font-weight: bold;" aria-current="page" href="{% url 'home' %}">Home</a>
+                <div class="cat-list my-2">
+                  <ul class="list-group" style="display: inline; margin-left: 60px;">
+                    {% for category in categories %}
+                    <li class="list-group-item pt-6" style="display: inline; margin-left: 30px; border: none; font-weight: bold; ">
+                      <a style="color: black;" href="{% url 'home' %}?category={{category.name}}"> {{category.name}} </a>
+                    </li>
+                    {% endfor %}
+                </ul> 
+                </div>
+                <div class="col-sm-4 col-md-4" style="margin-left:200px;">
+                  <form class="d-flex ml-5" method="GET" action="{% url 'search' %}">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-secondary ml-2" type="submit">Search</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>

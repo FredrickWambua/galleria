@@ -1,0 +1,25 @@
+{% extends 'galleria/base.html' %}
+{% block content %}
+
+  <div class="container">
+      <div class="row justify-content-center">
+
+
+            <div class="col-md-4">
+                <div class="card my-2">
+                    <h4 align=center> {{view_photo.name}} </h4>
+                    <img class="image-thumbail" height="200px" src="{{view_photo.image.url}}" alt="image">
+    
+                    <div class="card-body">
+                        <p>{{view_photo.category.name}}</p>
+                        <small>Place:{{view_photo.location}}.</small><br>
+                        <small>Published: {{view_photo.pub_date|timesince}} </small>
+                        <p></p>
+                        <p>{{view_photo.description}}</p>
+                    </div>
+                    <small><a href="/" class="btn btn-outline-secondary">back</a></small>
+                </div>
+            </div>
+      </div>
+  </div>
+  {% endblock %}
