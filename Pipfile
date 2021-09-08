@@ -11,6 +11,7 @@ gunicorn = "*"
 cloudinary = "*"
 bootstrap4 = "*"
 psycopg2 = "*"
+django-bootstrap4 = "*"
 
 [dev-packages]
 
