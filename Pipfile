@@ -8,6 +8,7 @@ django = "*"
 dj-database-url = "*"
 whitenoise = "*"
 gunicorn = "*"
+cloudinary = "*"
 
 [dev-packages]
 
