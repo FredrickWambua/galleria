@@ -12,4 +12,6 @@ urlpatterns=[
     url('^sports', views.sports, name = 'sports'),
     url('^search', views.search, name= 'search'),
     path('photodetails/<int:pk>/',views.view_photo, name='picha'),
+    path('location/(?P<location>\w+)/', views.image_location, name='location'),
+
 ]
