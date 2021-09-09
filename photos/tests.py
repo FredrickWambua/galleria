@@ -1,8 +1,8 @@
 from django.test import TestCase
 from .models import Photo, Category, Location
 
-# Create your tests here.
 
+# Testcase for Photo class
 class TestPhoto(TestCase):
     def setUp(self):
         self.category = Category(name='travel')
@@ -13,5 +13,15 @@ class TestPhoto(TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.location, Photo))
+
+    def test_save_image(self):
+        self.save_image()
+        stored = Photo.objects.all()
+        self.assertTrue(len(stored) > 0)
+
+    def test_delete_image(self):
+        self.delete_image()
+        images = Photo.objects.all()
+        self.assertTrue(len(images) == 0)
 
 
