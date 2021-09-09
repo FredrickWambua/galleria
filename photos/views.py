@@ -36,6 +36,10 @@ def sports(request):
     sports = Photo.objects.filter(sports_cat)
     return render(request, 'galleria/sports.html', {'sports':sports})
 
+def image_location(request, location):
+    photos = Photo.filter_by_location(location)
+    return render(request, 'galleria/location.html', {'location_images': photos})
+
 def search(request):
     if request.method == 'GET':
         query = request.GET.get('query')
