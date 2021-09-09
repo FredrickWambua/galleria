@@ -20,7 +20,7 @@ class Photo(models.Model):
 
     # Photo model methods
     def desc(self):
-        return self.description[:150]+' ...'
+        return self.description[:50]+' ...'
 
     def publish_date(self):
         return self.pub_date.strftime('%Y-%m-%d')
@@ -40,9 +40,9 @@ class Photo(models.Model):
         return got_image
 
     @classmethod
-    def search_image(cls, search_term):
-        images = cls.objects.filter(name__icontains = search_term)
-        return images
+    def search(cls, query):
+        photos = cls.objects.filter(category__name__icontains = query)
+        return photos
     @classmethod
     def filter_by_location(cls):
         locality = cls.objects.filter('location')

@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 <div class="card my-2">
                     <h4 align=center> {{view_photo.name}} </h4>
-                    <img class="image-thumbail" height="200px" src="{{view_photo.image.url}}" alt="image">
+                    <img class="image-thumbail" height="200px" id="myPhoto" src="{{view_photo.image.url}}" alt="image">
     
                     <div class="card-body">
                         <p>{{view_photo.category.name}}</p>
@@ -18,8 +18,19 @@
                         <p>{{view_photo.description}}</p>
                     </div>
                     <small><a href="/" class="btn btn-outline-secondary">back</a></small>
+                    <div class="copy">
+                        <button class="btn btn-outline-secondary" onclick="copyLink('{{image.id}}.url')">Copy</button>
+                    </div>
                 </div>
             </div>
       </div>
   </div>
+  <script>
+    function copyLink() {
+    var copyImage = document.getElementById('myPhoto')
+    copyImage.select();
+    document.execCommand('copy')
+    console.log('Copied Image')
+  }
+  </script>
   {% endblock %}
