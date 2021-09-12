@@ -23,7 +23,7 @@
                     </div>
                     <div class="lower-btns d-flex" >
                         <div class="copy-sect">
-                            <input type="text" value="https://fredspichas.herokuapp.com//image/{{images.id}}" id="myPhoto">
+                            <input type="text" value="https://fredspichas.herokuapp.com//image/{{images.id}}.url" id="myPhoto">
                             <button class="btn btn-outline-secondary" style="position: absolute; right: 10px;" onclick="copyLink()">Copy</button>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
     var copyImage = document.getElementById('myPhoto')
     copyImage.select();
     document.execCommand('copy')
-    console.log('Copied Image')
+    alert('Copied Image')
   }
   </script>
   {% endblock %}
