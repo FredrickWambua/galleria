@@ -8,9 +8,9 @@
       <div class="row justify-content-center">
 
 
-            <div class="col-md-4">
+            <div class="col">
+                <small><a href="/" class="btn btn-outline-secondary">back</a></small>
                 <div class="card my-2">
-                    <small><a href="/" class="btn btn-outline-secondary">back</a></small>
                     <h4 align=center> {{view_photo.name}} </h4>
                     <img class="image-thumbail" height="200px" id="myPhoto" src="{{view_photo.image.url}}" alt="image">
     
@@ -23,7 +23,7 @@
                     </div>
                     <div class="lower-btns d-flex" >
                         <div class="copy-sect">
-                            <input type="text" value="https://fredspichas.herokuapp.com//image/{{images.id}}.url" id="myPhoto">
+                            <input type="text" value="https://fredspichas.herokuapp.com//image/{{image.id}}.url" id="myPhoto">
                             <button class="btn btn-outline-secondary" style="position: absolute; right: 10px;" onclick="copyLink()">Copy</button>
                         </div>
                     </div>

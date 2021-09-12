@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse, Http404
 import datetime as dt
 from .models import Photo, Category , Location
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -41,13 +42,13 @@ def image_location(request, location):
     return render(request, 'galleria/location.html', {'location_images': photos})
 
 def search(request):
-    if request.method == 'GET':
-        query = request.GET.get('query')
-        if query:
-            photos = Photo.objects.filter(category__name__icontains='query')
-            return render(request, 'galleria/search.html', {'photos': photos})
+    if request.method=='GET':
+        result = request.GET.get('q')
+        if result:
+            display = Photo.objects.filter(Q(name__icontains = result)|Q(location__name__icontains = result)|Q(category__name__icontains = result))
+            print(display)
+            return render(request, 'galleria/search.html', {'display': display})
         else:
             message = "No information found from your search. Try to refine your search term"
             return render(request, 'galleria/search.html',{"message":message})
-    else:
-        print('Nothing found')
+
