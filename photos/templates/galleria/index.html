@@ -13,14 +13,13 @@
         <div class="col-md-4">
             <div class="card my-2">
                 <h4 style="text-align: center;"> {{photo.name}} </h4>
-                <img class="image-thumbail" height="200px" src="{{photo.image.url}}" alt="image">
+                <a href="{% url 'picha' photo.id %}"><img class="image-thumbail" height="200px" src="{{photo.image.url}}" alt="image"></a>
 
                 <div class="card-body">
                     <p>{{photo.category.name}}</p>
                     <small>Place:{{photo.location}}.</small><br>
                     <small>Published: {{photo.pub_date|timesince}} ago.</small>
                 </div>
-                <a href="{% url 'picha' photo.id %}" target="_self" class="btn btn-outline-success btn-sm m-1">View</a>
             </div>
         </div>
         {% empty %}
