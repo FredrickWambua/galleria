@@ -10,6 +10,7 @@
 
             <div class="col-md-4">
                 <div class="card my-2">
+                    <small><a href="/" class="btn btn-outline-secondary">back</a></small>
                     <h4 align=center> {{view_photo.name}} </h4>
                     <img class="image-thumbail" height="200px" id="myPhoto" src="{{view_photo.image.url}}" alt="image">
     
@@ -21,8 +22,10 @@
                         <p>{{view_photo.description}}</p>
                     </div>
                     <div class="lower-btns d-flex" >
-                        <small><a href="/" class="btn btn-outline-secondary">back</a></small>
-                        <button class="btn btn-outline-secondary" style="position: absolute; right: 10px;" onclick="copyLink('{{image.id}}.url')">Copy</button>
+                        <div class="copy-sect">
+                            <input type="text" value="https://fredspichas.herokuapp.com//image/{{images.id.url}}" id="myPhoto">
+                            <button class="btn btn-outline-secondary" style="position: absolute; right: 10px;" onclick="copyLink()">Copy</button>
+                        </div>
                     </div>
                 </div>
             </div>
